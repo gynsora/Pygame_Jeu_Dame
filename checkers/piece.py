@@ -1,5 +1,5 @@
 import pygame
-from .constants import RED, WHITE, SQUARE_SIZE, GREY
+from .constants import RED, WHITE, SQUARE_SIZE, GREY, CROWN
 
 class Piece:
     PADDING = 15
@@ -32,6 +32,13 @@ class Piece:
         radius = SQUARE_SIZE//2 - self.PADDING
         pygame.draw.circle(win,GREY, (self.x,self.y), radius +self.OUTLINE )
         pygame.draw.circle(win,self.color, (self.x,self.y), radius )
+        if self.king: # si la piece est devenue un roi on dessine la couronne de la piece
+            win.blit(CROWN, (self.x - CROWN.get_width()//2 , self.y - CROWN.get_height()//2 )) #ajout de la courrone au centre de la case
+    
+    def move(self, row, col): # permet de modifier la position d'une pièce ( x et y exact exemple = 1*64(grace a calc_pos() ))
+        self.row = row
+        self.col = col
+        self.calc_pos()
     
     def __repr__(self): # permet de représanter une piece, utile pour le debug
         return str(self.color)
