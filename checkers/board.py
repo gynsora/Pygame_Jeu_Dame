@@ -4,7 +4,7 @@ from .piece import Piece
 class Board:
     def __init__(self):
         self.board = []
-        self.selected_piece = None #piece selectionner dans l'échéquier
+        # #self.selected_piece = None #piece selectionner dans l'échéquier
         self.red_left = self.white_left = 12 #nombre de pièces restant pour rouge et pour blanc, dans l'échequier
         self.red_kings = self.white_kings = 0 #nombre de roi présent pour rouge et pour blanc, dans l'échequier
         self.create_board()

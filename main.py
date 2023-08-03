@@ -1,6 +1,6 @@
 import pygame
 from checkers.constants import WIDTH ,HEIGHT, SQUARE_SIZE
-from checkers.board import Board
+from checkers.game import Game
 
 FPS = 60
 #WIN = window, ici on crée la taille de la fenetre du jeu
@@ -19,8 +19,10 @@ def main():
     run = True
     #ici on crée un timer pour définir la vitesse de rafraichissement du jeu (FPS)
     clock = pygame.time.Clock()
+    #on initialise le jeu
+    game = Game(WIN)
     #on crée l'échequier
-    board = Board()
+    # # board = Board()
     #piece = board.get_piece(0,1)
     #board.move(piece, 4, 3)
 
@@ -32,12 +34,13 @@ def main():
             if event.type == pygame.MOUSEBUTTONDOWN : #event lorsque le joueur clique avec la souris
                 pos = pygame.mouse.get_pos() 
                 row , col = get_row_col_mouse(pos) #cette fonction prend la position de la souris et la transforme position x,y dans l'échequier row,col sont les données renvoyé par la fonction
-                piece = board.get_piece(row, col)   
-                if piece != 0 : 
-                    board.move(piece, 4, 3)   
+                # #piece = board.get_piece(row, col)   
+                # #if piece != 0 : 
+                    # #board.move(piece, 4, 3)   
         #dessin de l'échequier
-        board.draw(WIN)
-        pygame.display.update()
+        game.update()
+        # #board.draw(WIN)
+        # #pygame.display.update()
     pygame.quit()
 
 
