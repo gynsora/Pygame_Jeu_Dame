@@ -12,7 +12,7 @@ class Piece:
 
         #le pièce vont vers le haut si elle sont rouge donc direction = -1 sinon elle descend et direction = +1
         #rappel les coordonées en y sont inversé le 0 se situe en haut de l'écran 
-        self.direction  = -1 if self.color == RED else 1 
+        #self.direction  = -1 if self.color == RED else 1 
         #if self.color == RED:
             #self.direction = -1
         #else:
